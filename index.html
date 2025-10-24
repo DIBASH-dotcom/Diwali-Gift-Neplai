@@ -1,0 +1,951 @@
+<!DOCTYPE html>
+<html lang="ne">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>दिबशबाट सन्देश – Happy Tihar 2082 Family Wishes</title>
+
+    <meta name="description" content="दिबशबाट सन्देश: तपाईंका परिवारका सदस्यहरूलाई तिहार २०८२ को हार्दिक शुभकामना! खुशी, प्रेम र उज्यालोले भरिएको तिहार मनाउनुहोस्।">
+<meta name="keywords" content="दिबशबाट सन्देश, Happy Tihar 2082, Family Tihar Wishes, Nepali Tihar, तिहार शुभकामना, परिवार सन्देश">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1a0f0a 0%, #2d1810 50%, #3d2817 100%);
+            color: #fff;
+            min-height: 100vh;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(255, 140, 0, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(218, 112, 21, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 40% 20%, rgba(255, 165, 0, 0.05) 0%, transparent 50%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        @keyframes float-particle {
+            0% {
+                transform: translateY(100vh) translateX(0) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100vh) translateX(100px) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        .particle {
+            position: fixed;
+            width: 4px;
+            height: 4px;
+            background: radial-gradient(circle, #ffa500, #ff8c00);
+            border-radius: 50%;
+            pointer-events: none;
+            box-shadow: 0 0 10px rgba(255, 165, 0, 0.6);
+            z-index: 1;
+            animation: float-particle linear infinite;
+        }
+
+        .envelope-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 60vh;
+            perspective: 1000px;
+            padding: 20px;
+            position: relative;
+            z-index: 10;
+        }
+
+        .envelope {
+            position: relative;
+            width: 300px;
+            height: 200px;
+            background: linear-gradient(135deg, #f4e4c1 0%, #e8d4a8 100%);
+            border-radius: 5px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.5), 0 0 40px rgba(255, 140, 0, 0.3);
+            cursor: pointer;
+            transform-style: preserve-3d;
+            transition: transform 0.3s ease;
+        }
+
+        .envelope:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.5), 0 0 60px rgba(255, 140, 0, 0.5);
+        }
+
+        .envelope-front {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #f4e4c1 0%, #e8d4a8 100%);
+            border-radius: 5px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            border: 2px solid #d4a574;
+        }
+
+        .envelope-text {
+            font-size: 24px;
+            font-weight: bold;
+            color: #d35400;
+            text-align: center;
+            animation: pulse 2s infinite;
+        }
+
+        .envelope-emoji {
+            font-size: 48px;
+            margin-top: 10px;
+            animation: bounce 2s infinite;
+        }
+
+        .envelope-flap {
+            position: absolute;
+            width: 100%;
+            height: 50%;
+            background: linear-gradient(135deg, #e8d4a8 0%, #d4a574 100%);
+            top: 0;
+            left: 0;
+            border-radius: 5px 5px 0 0;
+            transform-origin: top;
+            transform: rotateX(0deg);
+            transition: transform 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            box-shadow: inset 0 -2px 5px rgba(0, 0, 0, 0.1);
+            border: 2px solid #d4a574;
+            border-bottom: none;
+        }
+
+        .envelope.open .envelope-flap {
+            transform: rotateX(-160deg);
+        }
+
+        .envelope.open .envelope-front {
+            opacity: 0.3;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .letter-content {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+            animation: fadeIn 0.5s ease;
+            padding: 20px;
+            overflow-y: auto;
+        }
+
+        .letter-content.show {
+            display: flex;
+        }
+
+        .letter-modal {
+            background: linear-gradient(135deg, #fff9e6 0%, #fffbf0 100%);
+            padding: 40px;
+            border-radius: 15px;
+            max-width: 600px;
+            max-height: 80vh;
+            overflow-y: auto;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5), 0 0 40px rgba(255, 140, 0, 0.3);
+            position: relative;
+            animation: slideUp 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+            width: 100%;
+        }
+
+        .close-letter {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            font-size: 28px;
+            cursor: pointer;
+            color: #d35400;
+            transition: transform 0.2s;
+            padding: 10px;
+            min-width: 44px;
+            min-height: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .close-letter:hover {
+            transform: scale(1.2);
+        }
+
+        .letter-modal h1 {
+            color: #d35400;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .letter-modal p {
+            line-height: 1.8;
+            color: #333;
+            text-align: justify;
+            font-size: 16px;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .gallery-section {
+            display: none;
+            padding: 40px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 10;
+        }
+
+        .gallery-section.show {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .gallery-section h2 {
+            text-align: center;
+            color: #ffa500;
+            margin-bottom: 30px;
+            font-size: 28px;
+            text-shadow: 0 0 20px rgba(255, 165, 0, 0.3);
+        }
+
+        .gallery-section h3 {
+            color: #ffa500;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            font-size: 20px;
+        }
+
+        .gallery-section h4 {
+            color: #ff8c00;
+            margin-top: 20px;
+            margin-bottom: 10px;
+            font-size: 16px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 20px;
+            justify-items: center;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .grid img {
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 15px;
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+            background: #f0f0f0;
+            border: 3px solid #ffa500;
+        }
+
+        .grid img:hover {
+            transform: scale(1.1);
+            box-shadow: 0 8px 20px rgba(255, 165, 0, 0.6);
+        }
+
+        .special-moments-btn {
+            display: block;
+            margin: 40px auto;
+            padding: 15px 40px;
+            font-size: 18px;
+            font-weight: bold;
+            color: white;
+            background: linear-gradient(135deg, #ff8c00 0%, #ffa500 100%);
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(255, 140, 0, 0.5), 0 0 20px rgba(255, 140, 0, 0.3);
+            min-height: 44px;
+            min-width: 120px;
+        }
+
+        .special-moments-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(255, 140, 0, 0.7), 0 0 30px rgba(255, 140, 0, 0.5);
+        }
+
+        .special-moments-btn:active {
+            transform: translateY(-1px);
+        }
+
+        .gallery-ok-btn {
+            display: block;
+            margin: 40px auto;
+            padding: 15px 40px;
+            font-size: 18px;
+            font-weight: bold;
+            color: white;
+            background: linear-gradient(135deg, #ff8c00 0%, #ffa500 100%);
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(255, 140, 0, 0.5), 0 0 20px rgba(255, 140, 0, 0.3);
+            min-height: 44px;
+            min-width: 120px;
+        }
+
+        .gallery-ok-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(255, 140, 0, 0.7), 0 0 30px rgba(255, 140, 0, 0.5);
+        }
+
+        .gallery-ok-btn:active {
+            transform: translateY(-1px);
+        }
+
+        .diya-3d-container {
+            width: 100%;
+            height: 500px;
+            position: relative;
+            z-index: 10;
+            margin: 40px 0;
+        }
+
+        #canvas3d {
+            width: 100%;
+            height: 100%;
+            display: block;
+        }
+
+        .diya-info {
+            text-align: center;
+            color: #ffa500;
+            margin-top: 20px;
+            font-size: 14px;
+            text-shadow: 0 0 10px rgba(255, 165, 0, 0.3);
+        }
+
+        .last-message {
+            background: rgba(255, 165, 0, 0.1);
+            padding: 30px;
+            border-radius: 15px;
+            margin-top: 40px;
+            border-left: 5px solid #ffa500;
+            color: #ffa500;
+            line-height: 1.8;
+            text-align: center;
+        }
+
+        .last-message p {
+            margin-bottom: 20px;
+            font-size: 16px;
+        }
+
+        #speakBtn {
+            background: linear-gradient(135deg, #ff8c00 0%, #ffa500 100%);
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 50px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(255, 140, 0, 0.5);
+            margin-top: 15px;
+        }
+
+        #speakBtn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(255, 140, 0, 0.7);
+        }
+
+        @media (max-width: 768px) {
+            .envelope-container {
+                min-height: 50vh;
+            }
+
+            .envelope {
+                width: 280px;
+                height: 190px;
+            }
+
+            .envelope-text {
+                font-size: 20px;
+            }
+
+            .envelope-emoji {
+                font-size: 40px;
+            }
+
+            .letter-modal {
+                padding: 30px 20px;
+                margin: 20px;
+                max-height: 85vh;
+            }
+
+            .letter-modal h1 {
+                font-size: 22px;
+            }
+
+            .letter-modal p {
+                font-size: 15px;
+                line-height: 1.6;
+            }
+
+            .grid {
+                grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+                gap: 15px;
+            }
+
+            .grid img {
+                width: 120px;
+                height: 120px;
+            }
+
+            .diya-3d-container {
+                height: 400px;
+            }
+
+            .special-moments-btn,
+            .gallery-ok-btn {
+                padding: 12px 30px;
+                font-size: 16px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .envelope-container {
+                min-height: 45vh;
+                padding: 15px;
+            }
+
+            .envelope {
+                width: 240px;
+                height: 160px;
+            }
+
+            .envelope-text {
+                font-size: 16px;
+            }
+
+            .envelope-emoji {
+                font-size: 32px;
+                margin-top: 8px;
+            }
+
+            .letter-content {
+                padding: 15px;
+            }
+
+            .letter-modal {
+                padding: 20px 15px;
+                margin: 0;
+                border-radius: 12px;
+                max-height: 90vh;
+            }
+
+            .letter-modal h1 {
+                font-size: 20px;
+                margin-bottom: 15px;
+            }
+
+            .letter-modal p {
+                font-size: 14px;
+                line-height: 1.5;
+                text-align: left;
+            }
+
+            .close-letter {
+                top: 10px;
+                right: 10px;
+                font-size: 24px;
+            }
+
+            .gallery-section {
+                padding: 25px 15px;
+            }
+
+            .gallery-section h2 {
+                font-size: 24px;
+                margin-bottom: 20px;
+            }
+
+            .gallery-section h3 {
+                font-size: 18px;
+                margin-top: 20px;
+                margin-bottom: 12px;
+            }
+
+            .gallery-section h4 {
+                font-size: 15px;
+                margin-top: 15px;
+                margin-bottom: 8px;
+            }
+
+            .grid {
+                grid-template-columns: repeat(auto-fit, minmax(90px, 1fr));
+                gap: 12px;
+                margin-bottom: 15px;
+            }
+
+            .grid img {
+                width: 90px;
+                height: 90px;
+                border-radius: 10px;
+            }
+
+            .diya-3d-container {
+                height: 300px;
+                margin: 30px 0;
+            }
+
+            .special-moments-btn,
+            .gallery-ok-btn {
+                padding: 12px 25px;
+                font-size: 15px;
+                margin: 30px auto;
+            }
+
+            .diya-info {
+                font-size: 12px;
+            }
+        }
+
+        @media (max-width: 360px) {
+            .envelope {
+                width: 220px;
+                height: 150px;
+            }
+
+            .envelope-text {
+                font-size: 14px;
+            }
+
+            .envelope-emoji {
+                font-size: 28px;
+            }
+
+            .grid {
+                grid-template-columns: repeat(auto-fit, minmax(75px, 1fr));
+                gap: 10px;
+            }
+
+            .grid img {
+                width: 75px;
+                height: 75px;
+            }
+
+            .diya-3d-container {
+                height: 250px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Envelope Section -->
+    <div class="envelope-container">
+        <div class="envelope" id="envelope">
+            <div class="envelope-flap"></div>
+            <div class="envelope-front">
+                <div class="envelope-text">कृपया यहाँ क्लिक गर्नुहोस्, सन्देश हेर्नुहोस्।</div>
+                <div class="envelope-emoji">💌</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Letter Modal -->
+    <div class="letter-content" id="letterContent">
+        <div class="letter-modal">
+            <span class="close-letter" id="closeLetter">&times;</span>
+            <h1>दिबश मगरबाट पत्र</h1>
+            <p>
+                जस्तो कि तपाईंहरूलाई थाहा छ, म घरबाट टाढा भएकाले यो ठूलो चाड–तिहार तपाईंहरूसँगै मनाउन र सहभागी हुन सक्दिनँ। 
+                तर, मेरो मन र शुभकामना सधैं तपाईंहरूसँगै छ। मलाई आशा छ कि यो चाडले हाम्रो परिवारमा नयाँ ऊर्जा, खुशी र सकारात्मकता ल्याओस्। 
+                म भगवानसँग प्रार्थना गर्दछु कि मेरा दाजुभाइ र दिदीबहिनीहरूले गरेका सबै प्रयासहरू सफल र विजयी क्षणहरूमा परिणत हुन्। 
+                मेरो हृदय र प्रार्थना सधैं भगवानप्रति र मेरो परिवारको सुख, समृद्धि र सुरक्षाका लागि समर्पित रहोस्।
+            </p>
+            <button class="special-moments-btn" id="galleryBtn">विशेष क्षणहरू</button>
+        </div>
+    </div>
+
+    <!-- Gallery Section -->
+    <div class="gallery-section" id="gallerySection">
+        <h2>सानो परिवार, सुखी परिवार</h2>
+
+        <h3>अभिभावक</h3>
+        <div class="grid">
+            <img src="./images/hajuramma.jpg" alt="Grandparents">
+        </div>
+
+        <h3>छोराहरू</h3>
+        <div class="grid">
+            <img src="./images/bigfather.jpg" alt="Son 1">
+            <img src="./images/father.jpg" alt="Son 2">
+            <img src="./images/amir.jpg" alt="Son 3">
+            <img src="./images/sonu.jpg" alt="Son 4">
+            <img src="./images/juntra.jpg" alt="Son 5">
+            <img src="./images/sandeep.jpg" alt="Son 6">
+        </div>
+
+        <h3>छोराहरूका परिवार</h3>
+        <h4>ज्येष्ठोको परिवार</h4>
+        <div class="grid">
+            <img src="./images/bigfather.jpg" alt="Family 1">
+            <img src="./images/punam.jpg" alt="Family 2">
+            <img src="./images/ashish.jpg" alt="Family 3">
+            <img src="./images/ashim.jpg" alt="Family 4">
+            <img src="./images/assa.jpg" alt="Family 5">
+        </div>
+
+        <h4>माइलाको परिवार</h4>
+        <div class="grid">
+            <img src="./images/father.jpg" alt="Family 1">
+            <img src="./images/family.jpg" alt="Family 2">
+            <img src="./images/dikshya.jpg" alt="Family 3">
+        </div>
+
+        <h4>साइलाको परिवार</h4>
+        <div class="grid">
+            <img src="./images/amir.jpg" alt="Family 1">
+            <img src="./images/parbati.jpg" alt="Family 2">
+            <img src="./images/prince.jpg" alt="Family 3">
+            <img src="./images/sonufamily.jpg" alt="Family 4">
+        </div>
+
+        <h4>काइलाको परिवार</h4>
+        <div class="grid">
+            <img src="./images/sonu.jpg" alt="Family 1">
+            <img src="./images/eshma1.jpg" alt="Family 2">
+            <img src="./images/esman1.jpg" alt="Family 3">
+        </div>
+
+        <h4>साइलोको परिवार</h4>
+        <div class="grid">
+            <img src="./images/juntra.jpg" alt="Family 1">
+            <img src="./images/puspha.jpg" alt="Family 2">
+            <img src="./images/juntradau.jpg" alt="Family 3">
+        </div>
+
+        <h4>कान्छोको परिवार</h4>
+        <div class="grid">
+            <img src="./images/sandeep.jpg" alt="Family 1">
+            <img src="./images/basanti.jpg" alt="Family 2">
+            <img src="./images/aman.jpg" alt="Family 3">
+        </div>
+
+        <h3>हाम्रो बहिनी</h3>
+        <div class="grid">
+            <img src="./images/dikshya.jpg" alt="Sister 1">
+            <img src="./images/eshma1.jpg" alt="Sister 2">
+            <img src="./images/assa.jpg" alt="Sister 3">
+            <img src="./images/prince.jpg" alt="Sister 4">
+            <img src="./images/juntradau.jpg" alt="Sister 5">
+            <img src="./images/aman.jpg" alt="Sister 6">
+            <img src="./images/sisters.jpg" alt="Sister 6">
+        </div>
+
+        <h3>हाम्रो दाजुभाइ</h3>
+        <div class="grid">
+            <img src="./images/ashish.jpg" alt="Brother 1">
+            <img src="./images/ashim.jpg" alt="Brother 2">
+            <img src="./images/esman1.jpg" alt="Brother 3">
+            <img src="./images/prince.jpg" alt="Brother 4">
+            <img src="./images/esman.jpg" alt="Brother 5">
+        </div>
+
+        <div class="last-message">
+            <p>अन्तमा, धन्यवाद। तपाईंहरू सबैलाई धेरै सम्झना छ। हाम्रो पूर्वजहरू र भगवान्‌ले हामीलाई हरेक परिस्थितिको सामना गर्ने शक्ति दिनुहोस् र हाम्रो बीच अझ बलियो सम्बन्ध कायम रहोस्।</p>
+            <p style="font-weight: bold; font-size: 18px;">शुभ तिहार २०८२को हार्दिक शुभकामना!</p>
+            <button id="speakBtn">🔊 आवाज सुन्नुहोस्</button>
+        </div>
+
+        <button class="gallery-ok-btn" id="galleryOkBtn">पत्रमा फर्कनुहोस्</button>
+    </div>
+
+    <script>
+        let scene, camera, renderer, diyo;
+        let mouseX = 0, mouseY = 0;
+        let targetRotationX = 0, targetRotationY = 0;
+
+        function init3DScene() {
+            const canvas = document.getElementById('canvas3d');
+            if (!canvas) return;
+
+            scene = new THREE.Scene();
+            scene.background = new THREE.Color(0x1a0f0a);
+            
+            camera = new THREE.PerspectiveCamera(75, canvas.clientWidth / canvas.clientHeight, 0.1, 1000);
+            camera.position.z = 3;
+
+            renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true });
+            renderer.setSize(canvas.clientWidth, canvas.clientHeight);
+            renderer.setPixelRatio(window.devicePixelRatio);
+
+            const ambientLight = new THREE.AmbientLight(0xffffff, 0.6);
+            scene.add(ambientLight);
+
+            const pointLight = new THREE.PointLight(0xffa500, 1.5);
+            pointLight.position.set(5, 5, 5);
+            scene.add(pointLight);
+
+            const pointLight2 = new THREE.PointLight(0xff8c00, 1);
+            pointLight2.position.set(-5, 3, 3);
+            scene.add(pointLight2);
+
+            createDiyo();
+
+            canvas.addEventListener('mousemove', onMouseMove);
+            canvas.addEventListener('touchmove', onTouchMove);
+            window.addEventListener('resize', onWindowResize);
+
+            animate();
+        }
+
+        function createDiyo() {
+            diyo = new THREE.Group();
+
+            const bodyGeometry = new THREE.LatheGeometry(
+                [
+                    new THREE.Vector2(0, 0),
+                    new THREE.Vector2(0.8, 0.2),
+                    new THREE.Vector2(1, 0.5),
+                    new THREE.Vector2(0.9, 1),
+                    new THREE.Vector2(0.7, 1.2),
+                    new THREE.Vector2(0.5, 1.3),
+                    new THREE.Vector2(0.3, 1.2),
+                    new THREE.Vector2(0.1, 1)
+                ],
+                32
+            );
+            const bodyMaterial = new THREE.MeshStandardMaterial({
+                color: 0xd2691e,
+                roughness: 0.7,
+                metalness: 0.1
+            });
+            const body = new THREE.Mesh(bodyGeometry, bodyMaterial);
+            diyo.add(body);
+
+            const wickGeometry = new THREE.CylinderGeometry(0.08, 0.08, 0.4, 16);
+            const wickMaterial = new THREE.MeshStandardMaterial({ color: 0x333333 });
+            const wick = new THREE.Mesh(wickGeometry, wickMaterial);
+            wick.position.y = 1.5;
+            diyo.add(wick);
+
+            const flameGeometry = new THREE.ConeGeometry(0.3, 0.8, 16);
+            const flameMaterial = new THREE.MeshBasicMaterial({
+                color: 0xff8c00,
+                emissive: 0xff4500,
+                emissiveIntensity: 0.8
+            });
+            const flame = new THREE.Mesh(flameGeometry, flameMaterial);
+            flame.position.y = 1.8;
+            flame.userData.isFlame = true;
+            diyo.add(flame);
+
+            const glowGeometry = new THREE.SphereGeometry(1.5, 32, 32);
+            const glowMaterial = new THREE.MeshBasicMaterial({
+                color: 0xffa500,
+                transparent: true,
+                opacity: 0.1,
+                side: THREE.BackSide
+            });
+            const glow = new THREE.Mesh(glowGeometry, glowMaterial);
+            diyo.add(glow);
+
+            scene.add(diyo);
+        }
+
+        function onMouseMove(event) {
+            const canvas = event.target;
+            mouseX = (event.clientX / canvas.clientWidth) * 2 - 1;
+            mouseY = -(event.clientY / canvas.clientHeight) * 2 + 1;
+            
+            targetRotationY = mouseX * Math.PI;
+            targetRotationX = mouseY * Math.PI * 0.5;
+        }
+
+        function onTouchMove(event) {
+            if (event.touches.length > 0) {
+                const touch = event.touches[0];
+                const canvas = document.getElementById('canvas3d');
+                mouseX = (touch.clientX / canvas.clientWidth) * 2 - 1;
+                mouseY = -(touch.clientY / canvas.clientHeight) * 2 + 1;
+                
+                targetRotationY = mouseX * Math.PI;
+                targetRotationX = mouseY * Math.PI * 0.5;
+            }
+        }
+
+        function onWindowResize() {
+            const canvas = document.getElementById('canvas3d');
+            if (!canvas || !renderer) return;
+            
+            const width = canvas.clientWidth;
+            const height = canvas.clientHeight;
+            
+            camera.aspect = width / height;
+            camera.updateProjectionMatrix();
+            renderer.setSize(width, height);
+        }
+
+        function animate() {
+            requestAnimationFrame(animate);
+
+            if (diyo) {
+                diyo.rotation.x += (targetRotationX - diyo.rotation.x) * 0.05;
+                diyo.rotation.y += (targetRotationY - diyo.rotation.y) * 0.05;
+
+                const flame = diyo.children.find(child => child.userData.isFlame);
+                if (flame) {
+                    flame.scale.y = 0.9 + Math.sin(Date.now() * 0.005) * 0.2;
+                    flame.scale.x = 0.9 + Math.cos(Date.now() * 0.004) * 0.15;
+                }
+            }
+
+            renderer.render(scene, camera);
+        }
+
+        const envelope = document.getElementById('envelope');
+        const letterContent = document.getElementById('letterContent');
+        const closeLetter = document.getElementById('closeLetter');
+        const gallerySection = document.getElementById('gallerySection');
+        const galleryBtn = document.getElementById('galleryBtn');
+        const galleryOkBtn = document.getElementById('galleryOkBtn');
+
+        envelope.addEventListener('click', () => {
+            envelope.classList.add('open');
+            setTimeout(() => {
+                letterContent.classList.add('show');
+                playSound('open');
+            }, 600);
+        });
+
+        closeLetter.addEventListener('click', () => {
+            letterContent.classList.remove('show');
+            envelope.classList.remove('open');
+        });
+
+        letterContent.addEventListener('click', (e) => {
+            if (e.target === letterContent) {
+                letterContent.classList.remove('show');
+                envelope.classList.remove('open');
+            }
+        });
+
+        galleryBtn.addEventListener('click', () => {
+            letterContent.style.display = 'none';
+            gallerySection.classList.add('show');
+            playSound('gallery');
+        });
+
+        galleryOkBtn.addEventListener('click', () => {
+            gallerySection.classList.remove('show');
+            letterContent.style.display = 'flex';
+            playSound('open');
+        });
+
+        function playSound(type) {
+            const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+            const oscillator = audioContext.createOscillator();
+            const gainNode = audioContext.createGain();
+
+            oscillator.connect(gainNode);
+            gainNode.connect(audioContext.destination);
+
+            if (type === 'open') {
+                oscillator.frequency.value = 523.25;
+                gainNode.gain.setValueAtTime(0.3, audioContext.currentTime);
+                gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.3);
+                oscillator.start(audioContext.currentTime);
+                oscillator.stop(audioContext.currentTime + 0.3);
+            } else if (type === 'gallery') {
+                oscillator.frequency.value = 659.25;
+                gainNode.gain.setValueAtTime(0.2, audioContext.currentTime);
+                gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.2);
+                oscillator.start(audioContext.currentTime);
+                oscillator.stop(audioContext.currentTime + 0.2);
+            }
+        }
+
+        function createParticles() {
+            for (let i = 0; i < 30; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.animationDuration = (Math.random() * 3 + 4) + 's';
+                particle.style.animationDelay = Math.random() * 2 + 's';
+                document.body.appendChild(particle);
+            }
+        }
+
+        createParticles();
+
+        const text = "फेरी एकपटक — दिबशबाट तिहार २०८२ को शुभकामना।";
+        function speakNepali() {
+            const msg = new SpeechSynthesisUtterance(text);
+            msg.lang = "ne-NP";
+            msg.rate = 1;
+            msg.pitch = 1;
+            window.speechSynthesis.cancel();
+            window.speechSynthesis.speak(msg);
+        }
+
+    
+
+        document.getElementById('speakBtn').addEventListener('click', speakNepali);
+    </script>
+
+</body>
+</html>
